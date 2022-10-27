@@ -1,3 +1,3 @@
 # ig.news
 
-Projeto do curso Ignite da Rocketseat utilizando NextJS. 
+Projeto do curso Ignite da Rocketseat utilizando NextJS.
