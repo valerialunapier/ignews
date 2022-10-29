@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { SubscribeButton } from '../components/SubscribeButton';
 import { stripe } from '../services/stripe';
 import styles from './home.module.scss';
+import { CONVERT_PRICE, MINUTE, HOUR, DAY } from '../utils/constants'
 
 interface HomeProps {
   product: {
@@ -42,13 +43,13 @@ export const getStaticProps: GetStaticProps = async () => {
     amount: new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
-    }).format(prince.unit_amount / 100),
+    }).format(prince.unit_amount / CONVERT_PRICE),
   };
 
   return {
     props: {
       product
     },
-    revalidate: 60 * 60 * 24, //24 hours
+    revalidate: MINUTE * HOUR * DAY, //24 hours
   }
 }
